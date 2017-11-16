@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
+    </style>
+
+    <style name="BlocklyTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="blockTextSize">24sp</item>
+        <item name="blockHat">false</item>
+        <item name="minScale">0.5</item>
+        <item name="maxScale">2.5</item>
+        <item name="defaultScale">1.0</item>
+        <item name = "android:windowNoTitle">true</item>
+    </style>
+
+</resources>

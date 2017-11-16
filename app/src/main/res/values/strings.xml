@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Nauka programowania</string>
+    <string name="APP_AUTHOR">Angelika Owczarek</string>
+    <string name="split_generate_message">Wciśnij "URUCHOM" by wygenerować Twój kod!</string>
+    <string name="action_clear">Wyczyść</string>
+    <string name="action_load">Wczytaj</string>
+    <string name="action_run">URUCHOM</string>
+    <string name="action_save">Zapisz</string>
+</resources>
