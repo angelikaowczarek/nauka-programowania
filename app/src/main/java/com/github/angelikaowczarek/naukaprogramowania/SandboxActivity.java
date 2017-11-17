@@ -50,7 +50,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     @Override
     protected View onCreateContentView(int parentId) {
         View root = getLayoutInflater().inflate(R.layout.activity_sandbox, null);
-        mGeneratedTextView = (TextView) root.findViewById(R.id.generated_code);
+        mGeneratedTextView = root.findViewById(R.id.generated_code);
         updateTextMinHeight();
 
         mNoCodeText = mGeneratedTextView.getText().toString(); // Capture initial value.
@@ -65,24 +65,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
         updateTextMinHeight();
     }
 
-    /**
-     * Estimate the pixel size of the longest line of text, and set that to the TextView's minimum
-     * width.
-     */
     private void updateTextMinHeight() {
-//        String text = mGeneratedTextView.getText().toString();
-//        int maxline = 0;
-//        int start = 0;
-//        int index = text.indexOf('\n', start);
-//        while (index > 0) {
-//            maxline = Math.max(maxline, index - start);
-//            start = index + 1;
-//            index = text.indexOf('\n', start);
-//        }
-//        int remainder = text.length() - start;
-//        if (remainder > 0) {
-//            maxline = Math.max(maxline, remainder);
-//        }
 
         String text = mGeneratedTextView.getText().toString();
         int linesQuantity = 1;
