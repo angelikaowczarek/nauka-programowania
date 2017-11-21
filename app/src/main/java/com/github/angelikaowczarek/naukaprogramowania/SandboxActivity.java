@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
-import com.google.blockly.model.DefaultBlocks;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private static final String SAVE_FILENAME = "sandbox_workspace.xml";
     private static final String AUTOSAVE_FILENAME = "sandbox_workspace_autosave.xml";
 
-    private static final List<String> BLOCK_DEFINITIONS = DefaultBlocks.getAllBlockDefinitions();
+    private static final List<String> BLOCK_DEFINITIONS = Blocks.getAllBlockDefinitions();
     private static final List<String> JAVASCRIPT_GENERATORS = Arrays.asList(
             // Custom block generators go here. Default blocks are already included.
     );
@@ -128,8 +127,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     @NonNull
     @Override
     protected String getToolboxContentsXmlPath() {
-        // Replace with a toolbox that includes application specific blocks.
-        return DefaultBlocks.TOOLBOX_PATH;
+        return Blocks.TOOLBOX_PATH;
     }
 
     @NonNull

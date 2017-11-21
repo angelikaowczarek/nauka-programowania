@@ -6,4 +6,20 @@
     <string name="action_load">Wczytaj</string>
     <string name="action_run">URUCHOM</string>
     <string name="action_save">Zapisz</string>
+
+    <string name="blockly_toolbox_default_category_name">Bloki</string>
+    <string name="rename_variable">Zmień nazwę zmiennej\u2026"</string>
+    <string name="delete_variable">Usuń zmienną\u2026"</string>
+    <string name="create_variable">Nowa zmienna</string>
+    <string name="delete_variable_title">Usuń zmienną</string>
+    <string name="delete_variable_confirm">Usunąć zmienną %1$s i %2$d bloki jej używające?</string>
+    <string name="delete_variable_positive">Usuń</string>
+    <string name="delete_variable_negative">Anuluj</string>
+    <string name="name_variable_title">Nazwa zmiennej</string>
+    <string name="name_variable_message">Nowa nazwa zmiennej</string>
+    <string name="rename_variable_message">Zmień nazwę zmiennej z "%s"</string>
+    <string name="name_variable_positive">OK</string>
+    <string name="name_variable_negative">Anuluj</string>
+    <string name="cannot_delete_variable_procedure">Nie można usunąć zmiennej \"%1$s\", ponieważ jest częścią definicji funkcji \"%2$s\".</string>
+
 </resources>
