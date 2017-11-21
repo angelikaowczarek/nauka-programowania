@@ -28,6 +28,7 @@
         <activity
             android:name=".SandboxActivity"
             android:theme="@style/BlocklyTheme"
+            android:screenOrientation="portrait"
             android:label="" />
     </application>
 

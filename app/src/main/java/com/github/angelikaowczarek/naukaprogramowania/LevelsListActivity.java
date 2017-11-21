@@ -1,5 +1,6 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,5 +20,10 @@ public class LevelsListActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
+    public void runMainActivity(View view) {
+        startActivity(
+                new Intent(this, MainActivity.class));
     }
 }
