@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.evgenii.jsevaluator.JsEvaluator;
+import com.evgenii.jsevaluator.interfaces.JsCallback;
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
 
@@ -21,8 +23,9 @@ public class SandboxActivity extends AbstractBlocklyActivity {
 
     private static final List<String> BLOCK_DEFINITIONS = Blocks.getAllBlockDefinitions();
     private static final List<String> JAVASCRIPT_GENERATORS = Arrays.asList(
-            // Custom block generators go here. Default blocks are already included.
+            "generators/text_print.js"
     );
+    private JsEvaluator jsEvaluator = new JsEvaluator(this);
 
 //    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
 //            new LoggingCodeGeneratorCallback(this, TAG);
@@ -39,7 +42,18 @@ public class SandboxActivity extends AbstractBlocklyActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        mGeneratedTextView.setText(generatedCode);
+                        final String code = "var theFinalResult = '';\n" + generatedCode;
+                        jsEvaluator.evaluate(code, new JsCallback() {
+                            @Override
+                            public void onResult(String result) {
+                                mGeneratedTextView.setText(result);
+                            }
+
+                            @Override
+                            public void onError(String errorMessage) {
+                                mGeneratedTextView.setText(code);
+                            }
+                        });
                         updateTextMinHeight();
                     }
                 });
