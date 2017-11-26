@@ -42,7 +42,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        final String code = "var theFinalResult = '';\n" + generatedCode;
+                        final String code = "var theFinalResult = '';\nval newLine = String.fromCharCode(10);\n" + generatedCode;
                         jsEvaluator.evaluate(code, new JsCallback() {
                             @Override
                             public void onResult(String result) {
@@ -54,6 +54,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
                                 mGeneratedTextView.setText(code);
                             }
                         });
+//                        mGeneratedTextView.setText(code);
                         updateTextMinHeight();
                     }
                 });
