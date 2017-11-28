@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SandboxActivity extends AbstractBlocklyActivity {
-    private static final String TAG = "SandboxActivity";
 
     private static final String SAVE_FILENAME = "sandbox_workspace.xml";
     private static final String AUTOSAVE_FILENAME = "sandbox_workspace_autosave.xml";
@@ -34,6 +33,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private String mNoCodeText;
     private TextView mGeneratedTextView;
     private Handler mHandler;
+    private String COMPILATION_ERROR = "Błąd kompilacji. Nie da się uruchomić tego kodu :(";
 
     CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
         new CodeGenerationRequest.CodeGeneratorCallback() {
@@ -43,11 +43,14 @@ public class SandboxActivity extends AbstractBlocklyActivity {
                     @Override
                     public void run() {
                         final String code = "var theFinalResult = '';\n" + generatedCode;
-//                        final String code = "var theFinalResult = \"\";\nval newLine = String.fromCharCode(10);\n" + generatedCode;
                         jsEvaluator.evaluate(code, new JsCallback() {
                             @Override
                             public void onResult(String result) {
-                                mGeneratedTextView.setText(result);
+                                if (result.equals("undefined")) {
+                                    mGeneratedTextView.setText(COMPILATION_ERROR);
+                                } else {
+                                    mGeneratedTextView.setText(result);
+                                }
                                 updateTextMinHeight(result);
                             }
 
