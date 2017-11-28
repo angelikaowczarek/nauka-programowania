@@ -42,20 +42,21 @@ public class SandboxActivity extends AbstractBlocklyActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        final String code = "var theFinalResult = '';\nval newLine = String.fromCharCode(10);\n" + generatedCode;
+                        final String code = "var theFinalResult = '';\n" + generatedCode;
+//                        final String code = "var theFinalResult = \"\";\nval newLine = String.fromCharCode(10);\n" + generatedCode;
                         jsEvaluator.evaluate(code, new JsCallback() {
                             @Override
                             public void onResult(String result) {
                                 mGeneratedTextView.setText(result);
+                                updateTextMinHeight(result);
                             }
 
                             @Override
                             public void onError(String errorMessage) {
                                 mGeneratedTextView.setText(code);
+                                updateTextMinHeight(code);
                             }
                         });
-//                        mGeneratedTextView.setText(code);
-                        updateTextMinHeight();
                     }
                 });
             }
@@ -65,9 +66,8 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     protected View onCreateContentView(int parentId) {
         View root = getLayoutInflater().inflate(R.layout.activity_sandbox, null);
         mGeneratedTextView = root.findViewById(R.id.generated_code);
-        updateTextMinHeight();
-
         mNoCodeText = mGeneratedTextView.getText().toString(); // Capture initial value.
+        updateTextMinHeight(mNoCodeText);
 
         return root;
     }
@@ -76,12 +76,10 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     public void onClearWorkspace() {
         super.onClearWorkspace();
         mGeneratedTextView.setText(mNoCodeText);
-        updateTextMinHeight();
+        updateTextMinHeight(mGeneratedTextView.getText().toString());
     }
 
-    private void updateTextMinHeight() {
-
-        String text = mGeneratedTextView.getText().toString();
+    private void updateTextMinHeight(String text) {
         int linesQuantity = 1;
         int start = 0;
         int index = text.indexOf('\n', start);
