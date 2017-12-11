@@ -17,9 +17,10 @@ public final class Blocks {
 //    private static final String VARIABLE_BLOCKS_PATH = "blocks/variable_blocks_temp.json";
 //    public static final String TOOLBOX_PATH = "blocks/toolbox_temp.xml";
 
-    private static final String TEXT_BLOCKS_PATH = "blocks/text_blocks.json";
+    private static final String LOGIC_BLOCKS_PATH = "blocks/logic_blocks.json";
     private static final String LOOP_BLOCKS_PATH = "blocks/loop_blocks.json";
     private static final String MATH_BLOCKS_PATH = "blocks/math_blocks.json";
+    private static final String TEXT_BLOCKS_PATH = "blocks/text_blocks.json";
     private static final String VARIABLE_BLOCKS_PATH = "blocks/variable_blocks.json";
     public static final String TOOLBOX_PATH = "blocks/toolbox.xml";
 
@@ -28,9 +29,10 @@ public final class Blocks {
     public static List<String> getAllBlockDefinitions() {
         if (ALL_BLOCK_DEFINITIONS == null) {
             ALL_BLOCK_DEFINITIONS = Collections.unmodifiableList(Arrays.asList(
-                    TEXT_BLOCKS_PATH,
+                    LOGIC_BLOCKS_PATH,
                     LOOP_BLOCKS_PATH,
                     MATH_BLOCKS_PATH,
+                    TEXT_BLOCKS_PATH,
                     VARIABLE_BLOCKS_PATH
 
 //                    TEXT_BLOCKS_PATH,

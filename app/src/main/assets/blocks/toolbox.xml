@@ -17,6 +17,13 @@
             </value>
         </block>
     </category>
+    <category name="Warunek" colour="320">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+    </category>
     <category name="Liczba" colour="160">
         <block type="math_number"></block>
     </category>

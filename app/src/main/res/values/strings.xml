@@ -22,4 +22,17 @@
     <string name="name_variable_negative">Anuluj</string>
     <string name="cannot_delete_variable_procedure">Nie można usunąć zmiennej \"%1$s\", ponieważ jest częścią definicji funkcji \"%2$s\".</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="mutator_ifelse_edit_title">Zaktualizuj blok warunkowy</string>
+    <string name="mutator_ifelse_edit_ifelse_count">Ilość warunków \"jeśli\": %d</string>
+    <string name="mutator_ifelse_edit_has_else">Dodać blok \"w przeciwnym razie\"?</string>
+    <string name="mutator_ifelse_label_if">jeśli</string>
+    <string name="mutator_ifelse_label_else_if">w przeciwnym razie, jeśli</string>
+    <string name="mutator_ifelse_label_then">wykonaj</string>
+    <string name="mutator_ifelse_label_else">w przeciwym razie</string>
+    <string name="instructions">START:\n\nNa początek zacznij od rozwiązywania kolejnych poziomów zabawy. Będą one stopniowo uczyły Cię, jakich wyrażeń i instrukcji używa się w programowaniu. Może okazać się, że część zagadnień już znasz i rozumiesz - wtedy możesz przeskoczyć o kilka tematów. Każdy kolejny temat wymaga znajomości poprzednich.\n\n\nPIASKOWNICA:\n\nPiaskownica zawiera wszystkie instrukcje poznawane w trakcie rozwiązywania poziomów. Możesz tutaj poćwiczyć nabyte umiejętności. W tym miejscu nie ma zadań - liczy się Twoja kreatywność :)\n\nJeśli czujesz się swobodnie w używaniu poznanych instrukcji możesz śmiało spóbować \"prawdziwego\" programowania! Powodzenia!</string>
+    <string name="about">Nauka programowania wersja 1.0\n\nAplikacja została utworzona w ramach pracy inżynierskiej "Projekt i implementacja aplikacji do nauki podstaw programowania dla dzieci" na Akademii Górniczo-Hutniczej.\n\nAutor aplikacji: Angelika Owczarek.</string>
 </resources>

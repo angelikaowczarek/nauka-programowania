@@ -50,11 +50,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/authorTextView"
-        app:layout_constraintVertical_bias="0.511">
+        app:layout_constraintVertical_bias="0.507">
 
         <ImageButton
             android:id="@+id/startButton"
@@ -101,13 +101,14 @@
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:adjustViewBounds="true"
+            android:onClick="runInstructionsActivity"
             android:padding="0dp"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toTopOf="@+id/aboutAppButton"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/button_ustawienia_1080x1920" />
+            app:srcCompat="@drawable/button_instrukcje_1080x1920" />
 
         <ImageButton
             android:id="@+id/aboutAppButton"
@@ -117,6 +118,7 @@
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:adjustViewBounds="true"
+            android:onClick="runAboutActivity"
             android:padding="0dp"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"

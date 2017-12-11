@@ -26,10 +26,6 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     );
     private JsEvaluator jsEvaluator = new JsEvaluator(this);
 
-//    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
-//            new LoggingCodeGeneratorCallback(this, TAG);
-
-
     private String mNoCodeText;
     private TextView mGeneratedTextView;
     private Handler mHandler;
@@ -56,8 +52,8 @@ public class SandboxActivity extends AbstractBlocklyActivity {
 
                             @Override
                             public void onError(String errorMessage) {
-                                mGeneratedTextView.setText(code);
-                                updateTextMinHeight(code);
+                                mGeneratedTextView.setText(errorMessage);
+                                updateTextMinHeight(errorMessage);
                             }
                         });
                     }
