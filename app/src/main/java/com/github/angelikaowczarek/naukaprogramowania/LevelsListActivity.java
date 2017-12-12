@@ -4,11 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageButton;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LevelsListActivity extends AppCompatActivity {
 
@@ -26,24 +31,8 @@ public class LevelsListActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        setupList();
-    }
-
-    private void setupList() {
-        boolean nextFileExists = true;
-        int fileCounter = 1;
-        while (nextFileExists) {
-          String SERIALIZED_FILE_NAME = "levels/level_" + fileCounter + ".xml";
-            try {
-                InputStream inputStream = new BufferedInputStream(new FileInputStream(SERIALIZED_FILE_NAME));
-                // tu jakieś czytanie
-                fileCounter++;
-
-            } catch (FileNotFoundException e) {
-                System.out.println("ERROR: File dvd.xml not found");
-                nextFileExists = false;
-            }
-        }
+        GridView grid = findViewById(R.id.gridView);
+        grid.setAdapter(new ImageAdapter(this, getWindowManager()));
     }
 
     public void runMainActivity(View view) {

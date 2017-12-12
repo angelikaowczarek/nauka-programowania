@@ -1,0 +1,5 @@
+<resources>
+    <integer name="margin">16</integer>
+    <integer name="spacing">8</integer>
+    <integer name="padding">16</integer>
+</resources>

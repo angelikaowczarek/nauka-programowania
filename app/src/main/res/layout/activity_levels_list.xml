@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_levels_1080x1920"
+    android:background="@drawable/background_full_1080x1920"
     tools:context="com.github.angelikaowczarek.naukaprogramowania.LevelsListActivity">
 
     <ImageButton
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:adjustViewBounds="true"
         android:onClick="runMainActivity"
         android:padding="0dp"
@@ -20,12 +20,38 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:srcCompat="@drawable/button_back_1080x1920" />
 
+    <ImageView
+        android:id="@+id/header_levels"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/text_levels_1080x1920"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
-    <!--android:scaleType="centerInside"-->
-    <!--app:layout_constraintBottom_toTopOf="@+id/sandboxButton"-->
-    <!--app:layout_constraintHorizontal_bias="0.0"-->
-    <!--app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--app:layout_constraintRight_toRightOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"-->
-    <!--app:layout_constraintVertical_bias="0.0"-->
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:horizontalSpacing="8dp"
+        android:numColumns="3"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:verticalSpacing="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_levels">
+        />
+    </GridView>
+
+
 </android.support.constraint.ConstraintLayout>
