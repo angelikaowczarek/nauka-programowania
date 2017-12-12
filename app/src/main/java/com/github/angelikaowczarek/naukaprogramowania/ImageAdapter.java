@@ -1,13 +1,17 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -23,6 +27,65 @@ public class ImageAdapter extends BaseAdapter {
         this.context = context;
         this.windowManager = windowManager;
         populateIdsArray();
+    }
+
+    @Override
+    public int getCount() {
+        return idsArray.length;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+
+        int rowHeight = calculateRowHeight();
+
+//        ImageButton imageButton = new ImageButton(context);
+//        imageButton.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, rowHeight));
+//        imageButton.setImageResource(idsArray[i]);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("supcio ");
+//            }
+//        });
+//
+//        return imageButton;
+
+
+        ImageView imageView = new ImageView(context);
+        imageView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, rowHeight));
+        imageView.setId(idsArray[i]);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = context.getResources().getResourceName(v.getId());
+                System.out.println(name);
+                // TODO: implement level onClick
+            }
+        });
+        imageView.setImageResource(idsArray[i]);
+        return imageView;
+    }
+
+    private int calculateRowHeight() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        int width = displayMetrics.widthPixels;
+
+        Integer padding = context.getResources().getInteger(R.integer.padding);
+        Integer spacing = context.getResources().getInteger(R.integer.spacing);
+
+        return (width - 2 * padding - 2 * spacing) / 3;
     }
 
     private void populateIdsArray() {
@@ -55,42 +118,5 @@ public class ImageAdapter extends BaseAdapter {
         idsList.add(R.drawable.button_number7_1080x1920);
         idsList.add(R.drawable.button_number8_1080x1920);
         idsList.add(R.drawable.button_number9_1080x1920);
-    }
-
-    @Override
-    public int getCount() {
-        return idsArray.length;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-
-        int rowHeight = calculateRowHeight();
-
-        ImageView imageView = new ImageView(context);
-        imageView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, rowHeight));
-        imageView.setImageResource(idsArray[i]);
-        return imageView;
-    }
-
-    private int calculateRowHeight() {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        int width = displayMetrics.widthPixels;
-
-        Integer padding = context.getResources().getInteger(R.integer.padding);
-        Integer spacing = context.getResources().getInteger(R.integer.spacing);
-
-        return (width - 2 * padding - 2 * spacing) / 3;
     }
 }
