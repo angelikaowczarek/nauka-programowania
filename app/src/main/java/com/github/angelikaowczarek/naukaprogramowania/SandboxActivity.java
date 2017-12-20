@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,6 +19,8 @@ import java.util.List;
 
 public class SandboxActivity extends AbstractBlocklyActivity {
 
+    private static final String TAG = "SandboxActivity";
+
     private static final String SAVE_FILENAME = "sandbox_workspace.xml";
     private static final String AUTOSAVE_FILENAME = "sandbox_workspace_autosave.xml";
 
@@ -29,37 +33,54 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private String mNoCodeText;
     private TextView mGeneratedTextView;
     private Handler mHandler;
-    private String COMPILATION_ERROR = "Błąd kompilacji. Nie da się uruchomić tego kodu :(";
+
+    private String code = "";
+    private int runSelect = 0;
+
 
     private CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
-        new CodeGenerationRequest.CodeGeneratorCallback() {
-            @Override
-            public void onFinishCodeGeneration(final String generatedCode) {
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        final String code = "var theFinalResult = '';\n" + generatedCode;
-                        jsEvaluator.evaluate(code, new JsCallback() {
-                            @Override
-                            public void onResult(String result) {
-                                if (result.equals("undefined")) {
-                                    mGeneratedTextView.setText(COMPILATION_ERROR);
-                                } else {
-                                    mGeneratedTextView.setText(result);
-                                }
-                                updateTextMinHeight(result);
-                            }
-
-                            @Override
-                            public void onError(String errorMessage) {
-                                mGeneratedTextView.setText(errorMessage);
-                                updateTextMinHeight(errorMessage);
-                            }
-                        });
+            new CodeGenerationRequest.CodeGeneratorCallback() {
+                @Override
+                public void onFinishCodeGeneration(final String generatedCode) {
+                    code = generatedCode;
+                    if (runSelect < 1) {
+                        return;
                     }
-                });
-            }
-        };
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            final String processedCode = "var theFinalResult = '';\n" + generatedCode;
+                            jsEvaluator.evaluate(processedCode, new JsCallback() {
+                                @Override
+                                public void onResult(String result) {
+                                    if (result.equals("undefined")) {
+                                        mGeneratedTextView.setText(getString(R.string.compilation_error));
+                                    } else {
+                                        mGeneratedTextView.setText(result);
+                                    }
+                                    updateTextMinHeight(result);
+                                }
+
+                                @Override
+                                public void onError(String errorMessage) {
+                                    mGeneratedTextView.setText(errorMessage);
+                                    updateTextMinHeight(errorMessage);
+                                }
+                            });
+                        }
+                    });
+                    runSelect--;
+                }
+            };
+
+    public void showCode(MenuItem item) {
+        onRunCode();
+
+        code = code.replace("theFinalResult += ", "document.write(");
+        code = code.replace(" + \"\\n\";", ");");
+        mGeneratedTextView.setText(code);
+        updateTextMinHeight(code);
+    }
 
     @Override
     protected View onCreateContentView(int parentId) {
@@ -176,5 +197,33 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     @NonNull
     protected String getWorkspaceAutosavePath() {
         return AUTOSAVE_FILENAME;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == com.google.blockly.android.R.id.action_save) {
+            onSaveWorkspace();
+            return true;
+        } else if (id == com.google.blockly.android.R.id.action_load) {
+            onLoadWorkspace();
+            return true;
+        } else if (id == com.google.blockly.android.R.id.action_clear) {
+            onClearWorkspace();
+            return true;
+        } else if (id == com.google.blockly.android.R.id.action_run) {
+            if (getController().getWorkspace().hasBlocks()) {
+                onRunCode();
+                runSelect++;
+            } else {
+                Log.i(TAG, "No blocks in workspace. Skipping run request.");
+            }
+            return true;
+        } else if (id == android.R.id.home && mNavigationDrawer != null) {
+            setNavDrawerOpened(!isNavDrawerOpen());
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

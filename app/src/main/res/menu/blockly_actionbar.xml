@@ -13,6 +13,7 @@
         android:id="@+id/show_code"
         android:icon="@drawable/ic_play_arrow_white_24dp"
         android:orderInCategory="10"
+        android:onClick="showCode"
         android:title="@string/action_code"
         app:showAsAction="never" />
     <item

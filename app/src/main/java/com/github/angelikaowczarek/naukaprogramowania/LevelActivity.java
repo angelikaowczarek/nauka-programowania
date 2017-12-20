@@ -87,9 +87,8 @@ public class LevelActivity extends AbstractBlocklyActivity {
         builder.setMessage("dgadfgadfg")
                 .setTitle("Poziom " + level_no);
 
-        builder.setPositiveButton("Start", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Kontynuuj", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-//                dialog.
             }
         });
 
@@ -217,9 +216,6 @@ public class LevelActivity extends AbstractBlocklyActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         if (id == com.google.blockly.android.R.id.action_save) {
