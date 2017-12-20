@@ -22,7 +22,7 @@ import java.util.List;
 public class LevelActivity extends AbstractBlocklyActivity {
 
     private static final String TAG = "LevelActivity";
-    private String level_no;
+    private int level_no = 0;
     private AlertDialog dialog;
     private String code = "";
     private int runSelect = 0;
@@ -35,6 +35,8 @@ public class LevelActivity extends AbstractBlocklyActivity {
     private String mNoCodeText;
     private TextView mGeneratedTextView;
     private Handler mHandler;
+
+    private Level level;
 
     private CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
             new CodeGenerationRequest.CodeGeneratorCallback() {
@@ -77,6 +79,8 @@ public class LevelActivity extends AbstractBlocklyActivity {
         mHandler = new Handler();
         updateActionBar();
 
+        level = new LevelsDeserializer(this).deserialize(level_no);
+
         createDescriptionDialog();
         showInstructions();
     }
@@ -84,8 +88,8 @@ public class LevelActivity extends AbstractBlocklyActivity {
     private void createDescriptionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("dgadfgadfg")
-                .setTitle("Poziom " + level_no);
+        builder.setMessage(level.getDescription())
+                .setTitle(level.getNo() + ": " + level.getBlockName());
 
         builder.setPositiveButton("Kontynuuj", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -199,19 +203,30 @@ public class LevelActivity extends AbstractBlocklyActivity {
     }
 
     private String getToolboxFilename() {
+        findLevelNumber();
         String toolboxPath = "blocks/toolbox.xml";
-        Bundle b = getIntent().getExtras();
-        if (b != null) {
-            level_no = b.getString("name");
-        }
 
-        if (level_no != null) {
-            level_no = level_no.replace(getString(R.string.level_name_regex_1), "");
-            level_no = level_no.replace(getString(R.string.level_name_regex_2), "");
+        if (level_no != 0) {
             toolboxPath = "blocks/toolbox_" + level_no + ".xml";
         }
-
         return toolboxPath;
+    }
+
+    private void findLevelNumber() {
+        Bundle b = getIntent().getExtras();
+
+        String filename = null;
+
+        if (b != null) {
+            filename = b.getString("name");
+        }
+
+        if (filename != null) {
+            filename = filename.replace(getString(R.string.level_name_regex_1), "");
+            filename = filename.replace(getString(R.string.level_name_regex_2), "");
+
+            level_no = Integer.valueOf(filename);
+        }
     }
 
     @Override

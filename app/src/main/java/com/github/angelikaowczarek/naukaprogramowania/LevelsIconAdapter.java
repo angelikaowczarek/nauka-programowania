@@ -93,15 +93,7 @@ public class LevelsIconAdapter extends BaseAdapter {
     private void populateIdsArray() {
         setupIdsList();
 
-        int count = 0;
-
-        Field[] fields = R.xml.class.getFields();
-        for (Field field : fields) {
-            System.out.println(field.getName());
-            if (field.getName().startsWith("level_")) {
-                count++;
-            }
-        }
+        int count = context.getResources().getInteger(R.integer.levels_count);
 
         for (int i = idsList.size() - 1; i >= count; i--) {
             idsList.remove(i);
