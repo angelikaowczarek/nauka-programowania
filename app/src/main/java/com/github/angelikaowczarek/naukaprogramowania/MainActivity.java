@@ -1,6 +1,7 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.content.Intent;
@@ -50,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void runLevelsListActivity(View view) {
-        Intent intent = new Intent(this, LevelsListActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.editText);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        startActivity(
+                new Intent(this, LevelsListActivity.class));
     }
 }

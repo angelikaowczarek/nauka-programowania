@@ -12,7 +12,7 @@ import com.evgenii.jsevaluator.interfaces.JsCallback;
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SandboxActivity extends AbstractBlocklyActivity {
@@ -21,9 +21,9 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private static final String AUTOSAVE_FILENAME = "sandbox_workspace_autosave.xml";
 
     private static final List<String> BLOCK_DEFINITIONS = Blocks.getAllBlockDefinitions();
-    private static final List<String> JAVASCRIPT_GENERATORS = Arrays.asList(
-            "generators/text_print.js"
-    );
+    private static final List<String> JAVASCRIPT_GENERATORS = Collections.singletonList(
+            "generators/text_print.js");
+    public static final String TOOLBOX_PATH = "blocks/toolbox.xml";
     private JsEvaluator jsEvaluator = new JsEvaluator(this);
 
     private String mNoCodeText;
@@ -31,7 +31,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private Handler mHandler;
     private String COMPILATION_ERROR = "Błąd kompilacji. Nie da się uruchomić tego kodu :(";
 
-    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
+    private CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
         new CodeGenerationRequest.CodeGeneratorCallback() {
             @Override
             public void onFinishCodeGeneration(final String generatedCode) {
@@ -139,7 +139,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     @NonNull
     @Override
     protected String getToolboxContentsXmlPath() {
-        return Blocks.TOOLBOX_PATH;
+        return TOOLBOX_PATH;
     }
 
     @NonNull
@@ -151,7 +151,6 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     @NonNull
     @Override
     protected CodeGenerationRequest.CodeGeneratorCallback getCodeGenerationCallback() {
-        // Uses the same callback for every generation call.
         return mCodeGeneratorCallback;
     }
 

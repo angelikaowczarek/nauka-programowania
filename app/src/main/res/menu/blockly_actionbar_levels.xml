@@ -10,9 +10,17 @@
         android:title="@string/action_run"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_instructions"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:onClick="showInstructions"
+        android:orderInCategory="9"
+        android:title="@string/action_instructions"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/show_code"
-        android:icon="@drawable/ic_play_arrow_white_24dp"
+        android:icon="@android:drawable/ic_menu_view"
         android:orderInCategory="10"
+        android:onClick="showCode"
         android:title="@string/action_code"
         app:showAsAction="never" />
     <item

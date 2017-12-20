@@ -22,7 +22,6 @@ public final class Blocks {
     private static final String MATH_BLOCKS_PATH = "blocks/math_blocks.json";
     private static final String TEXT_BLOCKS_PATH = "blocks/text_blocks.json";
     private static final String VARIABLE_BLOCKS_PATH = "blocks/variable_blocks.json";
-    public static final String TOOLBOX_PATH = "blocks/toolbox.xml";
 
     private static List<String> ALL_BLOCK_DEFINITIONS = null;
 

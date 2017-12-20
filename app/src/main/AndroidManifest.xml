@@ -20,22 +20,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LevelActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".LevelsListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".LevelActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/BlocklyTheme" />
+        <activity android:name=".InstructionsActivity" />
         <activity
             android:name=".SandboxActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/BlocklyTheme" />
-        <activity
-            android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" />
-        <activity android:name=".InstructionsActivity" />
         <activity android:name=".AboutActivity"></activity>
     </application>
 

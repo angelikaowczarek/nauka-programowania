@@ -4,16 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ImageButton;
-
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class LevelsListActivity extends AppCompatActivity {
 
@@ -32,7 +23,7 @@ public class LevelsListActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         GridView grid = findViewById(R.id.gridView);
-        grid.setAdapter(new ImageAdapter(this, getWindowManager()));
+        grid.setAdapter(new LevelsIconAdapter(this, getWindowManager()));
     }
 
     public void runMainActivity(View view) {

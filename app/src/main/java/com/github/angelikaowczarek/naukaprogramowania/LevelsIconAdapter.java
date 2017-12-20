@@ -1,29 +1,27 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImageAdapter extends BaseAdapter {
+public class LevelsIconAdapter extends BaseAdapter {
     private Context context;
     private WindowManager windowManager;
     private Integer[] idsArray;
     private List<Integer> idsList = new ArrayList<>();
 
-    public ImageAdapter(Context context, WindowManager windowManager) {
+    public LevelsIconAdapter(Context context, WindowManager windowManager) {
         this.context = context;
         this.windowManager = windowManager;
         populateIdsArray();
@@ -68,9 +66,13 @@ public class ImageAdapter extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = context.getResources().getResourceName(v.getId());
-                System.out.println(name);
-                // TODO: implement level onClick
+                Bundle bundle = new Bundle();
+
+                bundle.putString("name", context.getResources().getResourceName(v.getId()));
+
+                Intent intent = new Intent(context, LevelActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
             }
         });
         imageView.setImageResource(idsArray[i]);
