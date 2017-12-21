@@ -23,7 +23,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/logo"/>
 
     <TextView
         android:id="@+id/authorTextView"
@@ -73,7 +74,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/button_start" />
+            app:srcCompat="@drawable/button_start"
+            android:contentDescription="@string/button_start" />
 
         <ImageButton
             android:id="@+id/sandboxButton"
@@ -90,7 +92,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/button_piaskownica" />
+            app:srcCompat="@drawable/button_piaskownica"
+            android:contentDescription="@string/button_sandbox" />
 
         <ImageButton
             android:id="@+id/settingsButton"
@@ -107,7 +110,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/button_instrukcje" />
+            app:srcCompat="@drawable/button_instrukcje"
+            android:contentDescription="@string/button_instructions" />
 
         <ImageButton
             android:id="@+id/aboutAppButton"
@@ -124,7 +128,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@drawable/button_o_aplikacji" />
+            app:srcCompat="@drawable/button_o_aplikacji"
+            android:contentDescription="@string/button_about"/>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
