@@ -15,11 +15,22 @@ public class LevelsDeserializer {
 
     public Level deserialize(int number) {
 
-        return new Level(
+        Level level = new Level(
                 number,
                 getValue("block_" + number),
                 getValue("description_" + number)
         );
+
+        for (int i = 0; i < Integer.valueOf(getValue("tests_code_count_" + number)); i++) {
+            level.addCodeTest(getValue("code_" + number + "_" + i));
+        }
+
+        for (int i = 0; i < Integer.valueOf(getValue("tests_io_count_" + number)); i++) {
+            level.addIoTestsInput(getValue("input_" + number + "_" + i));
+            level.addIoTestsOutput(getValue("output_" + number + "_" + i));
+        }
+
+        return level;
     }
 
     private String getValue(String name) {

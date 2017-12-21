@@ -28,6 +28,6 @@ public class LevelsListActivity extends AppCompatActivity {
 
     public void runMainActivity(View view) {
         startActivity(
-                new Intent(this, MainActivity.class));
+                new Intent(LevelsListActivity.this, MainActivity.class));
     }
 }

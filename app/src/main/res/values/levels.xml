@@ -2,6 +2,18 @@
 <resources>
     <integer name="levels_count">5</integer>
 
-    <string name="block_1">else_if</string>
-    <string name="description_1">Masz wykonywać polecenia takie</string>
+    <string name="block_1">Wypisywanie tekstu</string>
+    <string name="description_1">Pierwszą instrukcją jaką poznamy jest wypisywanie tekstu.
+    W zakładce \"Tekst\" znajduje się bloczek \"wypisz\". Pozwala on nam na wypisanie dowolnego tekstu
+    na ekran. Aby go użyć należy przeciągnąć go na planszę, wpisać dowolny tekst w miejsce pola
+        "abc" i uruchomić program.
+    \n\n
+    Zadanie do wykonania:\n
+        Wypisz na ekran swój pseudonim.
+    </string>
+    <string name="tests_io_count_1">0</string>
+    <string name="tests_code_count_1">1</string>
+    <string name="code_1_0">theFinalResult += text + "\n";\n</string>
+    <!--<string name="input_1_0">Wypisywanie tekstu</string>-->
+    <!--<string name="output_1_0">Wypisywanie tekstu</string>-->
 </resources>

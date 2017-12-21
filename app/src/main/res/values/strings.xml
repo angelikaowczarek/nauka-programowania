@@ -37,7 +37,7 @@
     <string name="mutator_ifelse_label_then">wykonaj</string>
     <string name="mutator_ifelse_label_else">w przeciwym razie</string>
     <string name="instructions">START:\n\nNa początek zacznij od rozwiązywania kolejnych poziomów zabawy. Będą one stopniowo uczyły Cię, jakich wyrażeń i instrukcji używa się w programowaniu. Może okazać się, że część zagadnień już znasz i rozumiesz - wtedy możesz przeskoczyć o kilka tematów. Każdy kolejny temat wymaga znajomości poprzednich.\n\n\nPIASKOWNICA:\n\nPiaskownica zawiera wszystkie instrukcje poznawane w trakcie rozwiązywania poziomów. Możesz tutaj poćwiczyć nabyte umiejętności. W tym miejscu nie ma zadań - liczy się Twoja kreatywność :)\n\nJeśli czujesz się swobodnie w używaniu poznanych instrukcji możesz śmiało spóbować \"prawdziwego\" programowania! Powodzenia!</string>
-    <string name="about">Nauka programowania wersja 1.0\n\nAplikacja została utworzona w ramach pracy inżynierskiej "Projekt i implementacja aplikacji do nauki podstaw programowania dla dzieci" na Akademii Górniczo-Hutniczej.\n\nAutor aplikacji: Angelika Owczarek.</string>
+    <string name="about">Nauka programowania wersja 1.0\n\nAplikacja została utworzona w ramach pracy inżynierskiej \"Projekt i implementacja aplikacji do nauki podstaw programowania dla dzieci\" na Akademii Górniczo-Hutniczej.\n\nAutor aplikacji: Angelika Owczarek.</string>
     <string name="action_instructions">Instrukcje</string>
     <string name="back_button">Powrót</string>
     <string name="header_instructions">Instrukcje</string>

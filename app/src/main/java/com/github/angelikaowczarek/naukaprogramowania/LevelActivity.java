@@ -1,6 +1,7 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -50,28 +51,43 @@ public class LevelActivity extends AbstractBlocklyActivity {
                         @Override
                         public void run() {
                             final String processedCode = "var theFinalResult = '';\n" + generatedCode;
-                            jsEvaluator.evaluate(processedCode, new JsCallback() {
-                                @Override
-                                public void onResult(String result) {
-                                    if (result.equals("undefined")) {
-                                        mGeneratedTextView.setText(getString(R.string.compilation_error));
-                                    } else {
-                                        mGeneratedTextView.setText(result);
-                                    }
-                                    updateTextMinHeight(result);
-                                }
-
-                                @Override
-                                public void onError(String errorMessage) {
-                                    mGeneratedTextView.setText(errorMessage);
-                                    updateTextMinHeight(errorMessage);
-                                }
-                            });
+                            evaluateJavascript(processedCode);
+                            runTests(processedCode);
                         }
                     });
                     runSelect--;
                 }
             };
+
+    private void evaluateJavascript(final String processedCode) {
+        jsEvaluator.evaluate(processedCode, new JsCallback() {
+            @Override
+            public void onResult(String result) {
+                if (result.equals("undefined")) {
+                    mGeneratedTextView.setText(getString(R.string.compilation_error));
+                } else {
+                    mGeneratedTextView.setText(result);
+                }
+                updateTextMinHeight(result);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                mGeneratedTextView.setText(errorMessage);
+                updateTextMinHeight(errorMessage);
+            }
+        });
+    }
+
+    private void runTests(String code) {
+        createSuccessDialog();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +113,24 @@ public class LevelActivity extends AbstractBlocklyActivity {
         });
 
         dialog = builder.create();
+    }
+
+    private void createSuccessDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Prawidłowo rozwiązałeś zadanie! :)")
+                .setTitle(level.getNo() + ": Gratulacje!");
+
+        builder.setPositiveButton("Dalej", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                startActivity(
+                        new Intent(LevelActivity.this, LevelsListActivity.class));
+                onDestroy();
+            }
+        });
+
+        AlertDialog successDialog = builder.create();
+        successDialog.show();
     }
 
     public void showInstructions(MenuItem item) {
@@ -204,10 +238,10 @@ public class LevelActivity extends AbstractBlocklyActivity {
 
     private String getToolboxFilename() {
         findLevelNumber();
-        String toolboxPath = "blocks/toolbox.xml";
+        String toolboxPath = "toolbox/toolbox.xml";
 
         if (level_no != 0) {
-            toolboxPath = "blocks/toolbox_" + level_no + ".xml";
+            toolboxPath = "toolbox/toolbox_" + level_no + ".xml";
         }
         return toolboxPath;
     }

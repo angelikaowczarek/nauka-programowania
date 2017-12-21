@@ -27,7 +27,7 @@ public class SandboxActivity extends AbstractBlocklyActivity {
     private static final List<String> BLOCK_DEFINITIONS = Blocks.getAllBlockDefinitions();
     private static final List<String> JAVASCRIPT_GENERATORS = Collections.singletonList(
             "generators/text_print.js");
-    public static final String TOOLBOX_PATH = "blocks/toolbox.xml";
+    public static final String TOOLBOX_PATH = "toolbox/toolbox.xml";
     private JsEvaluator jsEvaluator = new JsEvaluator(this);
 
     private String mNoCodeText;

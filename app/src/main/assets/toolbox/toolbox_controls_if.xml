@@ -1,0 +1,5 @@
+<toolbox>
+    <category name="Warunek" colour="320">
+        <block type="controls_if"></block>
+    </category>
+</toolbox>
