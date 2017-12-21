@@ -11,7 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,14 +102,14 @@ public class LevelsIconAdapter extends BaseAdapter {
 
 
     private void setupIdsList() {
-        idsList.add(R.drawable.button_number1_1080x1920);
-        idsList.add(R.drawable.button_number2_1080x1920);
-        idsList.add(R.drawable.button_number3_1080x1920);
-        idsList.add(R.drawable.button_number4_1080x1920);
-        idsList.add(R.drawable.button_number5_1080x1920);
-        idsList.add(R.drawable.button_number6_1080x1920);
-        idsList.add(R.drawable.button_number7_1080x1920);
-        idsList.add(R.drawable.button_number8_1080x1920);
-        idsList.add(R.drawable.button_number9_1080x1920);
+        idsList.add(R.drawable.button_number1);
+        idsList.add(R.drawable.button_number2);
+        idsList.add(R.drawable.button_number3);
+        idsList.add(R.drawable.button_number4);
+        idsList.add(R.drawable.button_number5);
+        idsList.add(R.drawable.button_number6);
+        idsList.add(R.drawable.button_number7);
+        idsList.add(R.drawable.button_number8);
+        idsList.add(R.drawable.button_number9);
     }
 }

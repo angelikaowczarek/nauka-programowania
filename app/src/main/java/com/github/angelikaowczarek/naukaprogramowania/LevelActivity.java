@@ -223,7 +223,6 @@ public class LevelActivity extends AbstractBlocklyActivity {
 
         if (filename != null) {
             filename = filename.replace(getString(R.string.level_name_regex_1), "");
-            filename = filename.replace(getString(R.string.level_name_regex_2), "");
 
             level_no = Integer.valueOf(filename);
         }

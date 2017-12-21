@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_full_1080x1920"
+    android:background="@drawable/background_full"
     tools:context="com.github.angelikaowczarek.naukaprogramowania.LevelsListActivity">
 
     <ImageButton
@@ -18,7 +18,7 @@
         android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/button_back_1080x1920" />
+        app:srcCompat="@drawable/button_back" />
 
     <ImageView
         android:id="@+id/header_levels"
@@ -30,7 +30,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/text_levels_1080x1920"
+        app:srcCompat="@drawable/text_levels"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 

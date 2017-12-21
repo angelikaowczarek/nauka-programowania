@@ -9,7 +9,6 @@
     <string name="action_code">Pokaż kod w Javascript</string>
     <string name="action_save">Zapisz</string>
     <string name="level_name_regex_1">com.github.angelikaowczarek.naukaprogramowania:drawable/button_number</string>
-    <string name="level_name_regex_2">_1080x1920</string>
 
     <string name="blockly_toolbox_default_category_name">Bloki</string>
     <string name="rename_variable">Zmień nazwę zmiennej\u2026"</string>
