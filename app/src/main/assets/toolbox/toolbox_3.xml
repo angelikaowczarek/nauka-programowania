@@ -13,4 +13,6 @@
     <category name="Liczba" colour="160">
         <block type="math_number"></block>
     </category>
+
+    <category name="Zmienna" colour="330" custom="VARIABLE" />
 </toolbox>

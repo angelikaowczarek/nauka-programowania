@@ -3,6 +3,3 @@ Blockly.JavaScript['text_print'] = function(block) {
         Blockly.JavaScript.ORDER_MEMBER) || '\'\'';
     return "theFinalResult += " + text + " + \"\\n\";\n";
 };
-
-
-""

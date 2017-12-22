@@ -9,11 +9,70 @@
         "abc" i uruchomić program.
     \n\n
     Zadanie do wykonania:\n
-        Wypisz na ekran swój pseudonim.
+        Wypisz na ekranie słowo "Europa".
     </string>
     <string name="tests_io_count_1">0</string>
     <string name="tests_code_count_1">1</string>
-    <string name="code_1_0">theFinalResult += text + "\n";\n</string>
+    <string name="code_1_0">var theFinalResult = \'\';\ntheFinalResult += \'Europa\' + \"\\n\";\n</string>
+    <!--<string name="code_1_1"> + \"\\n\";\n</string>-->
+    <!--<string name="code_1_0">var theFinalResult = \'\';\ntheFinalResult += \'abc\' + \"\\n\";\n</string>-->
     <!--<string name="input_1_0">Wypisywanie tekstu</string>-->
     <!--<string name="output_1_0">Wypisywanie tekstu</string>-->
+
+
+    <string name="block_2">Bloczek z liczbą</string>
+    <string name="description_2"> W programie będziemy często operować na liczbach. Przydatny jest
+         tu bloczek przechowujący liczby. Znajduje się on w zakładce \"liczby\". Przeciągnij bloczek
+        w miejsce tekstu w bloczku \"wypisz\" i uruchom program.
+    \n\n
+    Zadanie do wykonania:\n
+        Wypisz na ekranie liczbę 3.
+    </string>
+    <string name="tests_io_count_2">0</string>
+    <string name="tests_code_count_2">1</string>
+    <string name="code_2_0">var theFinalResult = \'\';\ntheFinalResult += 3 + \"\\n\";\n</string>
+
+
+    <string name="block_3">Tworzenie zmiennej</string>
+    <string name="description_3"> Zmienną nazywa się wyraz, który będzie przechowywał jakąś wartość.
+        Można np. utworzyć zmienną \"imie\", a potem przypisać mu wartość \"Kasia\". Kolejnym przykładem
+        jest zmienna \"ulubiony_kolor\" i jej wartość \"zielony\". Pamiętaj: przy tworzeniu zmiennej
+        możesz używać tylko liter alfabetu bez polskich znaków, cyfr, a także znaku \"_\".
+    \n\n
+    Zadanie do wykonania:\n
+        Utwórz zmienną o nazwie \"wiek\" i przypisz mu wartość \"12\". Skorzystaj z zakładki \"zmienna\".
+    </string>
+    <string name="tests_io_count_3">0</string>
+    <string name="tests_code_count_3">1</string>
+    <string name="code_3_0">var theFinalResult = \'\';\nvar wiek;\n\n\nwiek = 12;\n</string>
+
+
+    <string name="block_4">Używanie zmiennej</string>
+    <string name="description_4"> Jeśli jakiejś zmiennej nadamy wartość (np. \"imie\" i wartość \"Kasia\")
+        możemy w dowolnym miejscu programu ją wywołać. Jeśli każemy programowi wypisać \"imię\" program
+         napisze na ekranie słowo \"Kasia\" czyli prawdziwe imię :)
+    \n\n
+    Zadanie do wykonania:\n
+        Bazując na poprzednim zadaniu utwórz zmienną o nazwie \"wiek\" i przypisz mu wartość \"12\".
+        Potem spróbuj wypisać zmienną \"wiek\". Powinieneś otrzymać liczbę \"12\".
+    </string>
+    <string name="tests_io_count_4">0</string>
+    <string name="tests_code_count_4">1</string>
+    <string name="code_4_0">var theFinalResult = \'\';\nvar wiek;\n\n\nwiek = 12;\ntheFinalResult += wiek + \"\\n\";\n</string>
+
+
+    <string name="block_5">Używanie zmiennej</string>
+    <string name="description_5"> Jeśli jakiejś zmiennej nadamy wartość (np. \"imie\" i wartość \"Kasia\")
+        możemy w dowolnym miejscu programu ją wywołać. Jeśli każemy programowi wypisać \"imię\" program
+         napisze na ekranie słowo \"Kasia\" czyli prawdziwe imię :)
+    \n\n
+    Zadanie do wykonania:\n
+        Bazując na poprzednim zadaniu utwórz zmienną o nazwie \"wiek\" i przypisz mu wartość \"12\".
+        Potem spróbuj wypisać zmienną \"wiek\". Powinieneś otrzymać liczbę \"12\".
+    </string>
+    <string name="tests_io_count_5">0</string>
+    <string name="tests_code_count_5">1</string>
+    <string name="code_5_0">var theFinalResult = \'\';\nvar wiek;\n\n\nwiek = 12;\ntheFinalResult += wiek + \"\\n\";\n</string>
+
+
 </resources>

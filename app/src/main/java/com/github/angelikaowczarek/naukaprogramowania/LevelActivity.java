@@ -80,6 +80,36 @@ public class LevelActivity extends AbstractBlocklyActivity {
     }
 
     private void runTests(String code) {
+
+        List<String> ioTestsInput = level.getIoTestsInput();
+        List<String> ioTestsOutput = level.getIoTestsOutput();
+
+        for (String codeTest : level.getCodeTests()) {
+            int lastIndex = 0;
+            int count = 0;
+
+            while (lastIndex != -1) {
+                lastIndex = code.indexOf(codeTest, lastIndex);
+
+                if (lastIndex != -1) {
+                    count++;
+                    lastIndex += codeTest.length();
+                }
+            }
+
+            if (count != 1) {
+                return;
+            }
+
+//            if (!code.contains(codeTest)) {
+//                return;
+//            }
+        }
+
+        for (int i = 0; i < ioTestsInput.size(); i++) {
+
+        }
+
         createSuccessDialog();
     }
 
