@@ -1,10 +1,9 @@
 package com.github.angelikaowczarek.naukaprogramowania;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.CallSuper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,22 +35,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void runSandboxActivity(View view) {
+        Intent intent = new Intent(this, SandboxActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(
-                new Intent(this, SandboxActivity.class));
+                intent);
     }
 
     public void runInstructionsActivity(View view) {
+        Intent intent = new Intent(this, InstructionsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(
-                new Intent(this, InstructionsActivity.class));
+                intent);
     }
 
     public void runAboutActivity(View view) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(
-                new Intent(this, AboutActivity.class));
+                intent);
     }
 
     public void runLevelsListActivity(View view) {
+        Intent intent = new Intent(this, LevelsListActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(
-                new Intent(this, LevelsListActivity.class));
+                intent);
     }
 }

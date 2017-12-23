@@ -9,6 +9,7 @@ public class Level {
     private String blockName;
     private String description;
     private List<String> codeTests = new ArrayList<>();
+    private List<String> ioTestsVariable = new ArrayList<>();
     private List<String> ioTestsInput = new ArrayList<>();
     private List<String> ioTestsOutput = new ArrayList<>();
 
@@ -42,6 +43,10 @@ public class Level {
         ioTestsOutput.add(test);
     }
 
+    public void addIoTestsVariable(String test) {
+        ioTestsVariable.add(test);
+    }
+
     public List<String> getCodeTests() {
         return codeTests;
     }
@@ -52,6 +57,10 @@ public class Level {
 
     public List<String> getIoTestsOutput() {
         return ioTestsOutput;
+    }
+
+    public List<String> getIoTestsVariable() {
+        return ioTestsVariable;
     }
 }
 

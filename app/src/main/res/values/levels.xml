@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="levels_count">5</integer>
+    <integer name="levels_count">6</integer>
 
     <string name="block_1">Wypisywanie tekstu</string>
     <string name="description_1">Pierwszą instrukcją jaką poznamy jest wypisywanie tekstu.
@@ -61,18 +61,36 @@
     <string name="code_4_0">var theFinalResult = \'\';\nvar wiek;\n\n\nwiek = 12;\ntheFinalResult += wiek + \"\\n\";\n</string>
 
 
-    <string name="block_5">Używanie zmiennej</string>
-    <string name="description_5"> Jeśli jakiejś zmiennej nadamy wartość (np. \"imie\" i wartość \"Kasia\")
-        możemy w dowolnym miejscu programu ją wywołać. Jeśli każemy programowi wypisać \"imię\" program
-         napisze na ekranie słowo \"Kasia\" czyli prawdziwe imię :)
+    <string name="block_5">Pętla</string>
+    <string name="description_5"> Pętla służy do wykonania wybranego bloku lub bloczków kilka razy.
+        Zatem jeśli chcemy 5 razy wypisać słowo \"Afryka\", wystarczy przeciągnąć bloczek pętli,
+        dodać bloczek \"wypisz\" z uzupełnionym słowem \"Afryka\" i wpisać liczbę 5 jako ilość powtórzeń.
     \n\n
     Zadanie do wykonania:\n
-        Bazując na poprzednim zadaniu utwórz zmienną o nazwie \"wiek\" i przypisz mu wartość \"12\".
-        Potem spróbuj wypisać zmienną \"wiek\". Powinieneś otrzymać liczbę \"12\".
+        Wypisz 3 razy słowo \"Azja\".
     </string>
+
     <string name="tests_io_count_5">0</string>
     <string name="tests_code_count_5">1</string>
-    <string name="code_5_0">var theFinalResult = \'\';\nvar wiek;\n\n\nwiek = 12;\ntheFinalResult += wiek + \"\\n\";\n</string>
+    <string name="code_5_0">var theFinalResult = \'\';\nfor (var count = 0; count &lt; 3; count++)
+        {\n \s theFinalResult += \'Azja\' + \"\\n\";\n}\n</string>
+
+
+    <string name="block_6">Zmienna i pętla</string>
+    <string name="description_6"> Już wiesz jak tworzyć zmienne i pętle. Te umiejętności możesz
+        przećwiczyć wykonując to ćwiczenie.
+    \n\n
+    Zadanie do wykonania:\n
+        Bazując na poprzednich zadaniach utwórz zmienną o nazwie \"wiek\" i przypisz mu wartość \"12\".
+        Używając pętli wypisz 5 razy zmienną \"wiek\".
+    </string>
+
+    <string name="tests_io_count_6">1</string>
+    <string name="tests_code_count_6">1</string>
+    <string name="variable_6_0">wiek</string>
+    <string name="input_6_0">123</string>
+    <string name="output_6_0">123\n123\n123\n123\n123</string>
+    <string name="code_6_0">for (var count = 0; count &lt; 5; count++)</string>
 
 
 </resources>

@@ -27,7 +27,11 @@ public class LevelsListActivity extends AppCompatActivity {
     }
 
     public void runMainActivity(View view) {
+
+        Intent intent = new Intent(LevelsListActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(
-                new Intent(LevelsListActivity.this, MainActivity.class));
+                intent);
     }
 }

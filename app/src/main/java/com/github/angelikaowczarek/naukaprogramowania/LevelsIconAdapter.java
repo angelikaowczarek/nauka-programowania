@@ -46,19 +46,6 @@ public class LevelsIconAdapter extends BaseAdapter {
 
         int rowHeight = calculateRowHeight();
 
-//        ImageButton imageButton = new ImageButton(context);
-//        imageButton.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, rowHeight));
-//        imageButton.setImageResource(idsArray[i]);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("supcio ");
-//            }
-//        });
-//
-//        return imageButton;
-
-
         ImageView imageView = new ImageView(context);
         imageView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, rowHeight));
         imageView.setId(idsArray[i]);
@@ -71,6 +58,8 @@ public class LevelsIconAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(context, LevelActivity.class);
                 intent.putExtras(bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

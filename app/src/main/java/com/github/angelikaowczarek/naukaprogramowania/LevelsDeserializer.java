@@ -28,6 +28,7 @@ public class LevelsDeserializer {
         for (int i = 0; i < Integer.valueOf(getValue("tests_io_count_" + number)); i++) {
             level.addIoTestsInput(getValue("input_" + number + "_" + i));
             level.addIoTestsOutput(getValue("output_" + number + "_" + i));
+            level.addIoTestsVariable(getValue("variable_" + number + "_" + i));
         }
 
         return level;

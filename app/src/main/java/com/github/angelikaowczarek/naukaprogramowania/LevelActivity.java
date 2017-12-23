@@ -19,6 +19,7 @@ import com.google.blockly.android.codegen.CodeGenerationRequest;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class LevelActivity extends AbstractBlocklyActivity {
 
@@ -52,7 +53,6 @@ public class LevelActivity extends AbstractBlocklyActivity {
                         public void run() {
                             final String processedCode = "var theFinalResult = '';\n" + generatedCode;
                             evaluateJavascript(processedCode);
-                            runTests(processedCode);
                         }
                     });
                     runSelect--;
@@ -61,12 +61,16 @@ public class LevelActivity extends AbstractBlocklyActivity {
 
     private void evaluateJavascript(final String processedCode) {
         jsEvaluator.evaluate(processedCode, new JsCallback() {
+
             @Override
             public void onResult(String result) {
                 if (result.equals("undefined")) {
                     mGeneratedTextView.setText(getString(R.string.compilation_error));
                 } else {
                     mGeneratedTextView.setText(result);
+                    if (runIoTests(processedCode) && runCodeTests(processedCode)) {
+                        createSuccessDialog();
+                    }
                 }
                 updateTextMinHeight(result);
             }
@@ -76,41 +80,68 @@ public class LevelActivity extends AbstractBlocklyActivity {
                 mGeneratedTextView.setText(errorMessage);
                 updateTextMinHeight(errorMessage);
             }
-        });
-    }
 
-    private void runTests(String code) {
+            private boolean runIoTests(String currCode) {
+                final boolean[] passed = {true};
+                List<String> ioTestsInput = level.getIoTestsInput();
+                List<String> ioTestsOutput = level.getIoTestsOutput();
+                List<String> ioTestsVariable = level.getIoTestsVariable();
 
-        List<String> ioTestsInput = level.getIoTestsInput();
-        List<String> ioTestsOutput = level.getIoTestsOutput();
+                for (int i = 0; i < ioTestsInput.size(); i++) {
+                    String generatedString = ioTestsVariable.get(i) + " = [a-zA-Z0-9_]*;";
+                    String testingString = ioTestsVariable.get(i) + " = " + ioTestsInput + ";";
 
-        for (String codeTest : level.getCodeTests()) {
-            int lastIndex = 0;
-            int count = 0;
+                    if (!Pattern.compile(generatedString).matcher(currCode).find()) {
+                        passed[0] = false;
+                        break;
+                    }
 
-            while (lastIndex != -1) {
-                lastIndex = code.indexOf(codeTest, lastIndex);
+                    currCode = currCode.replaceAll(generatedString, testingString);
+                    final String currOutput = ioTestsOutput.get(i);
 
-                if (lastIndex != -1) {
-                    count++;
-                    lastIndex += codeTest.length();
+                    jsEvaluator.evaluate(currCode, new JsCallback() {
+
+                        @Override
+                        public void onResult(String result) {
+                            passed[0] = result.equals(currOutput);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            passed[0] = false;
+                        }
+                    });
                 }
+                return passed[0];
             }
 
-            if (count != 1) {
-                return;
-            }
+            private boolean runCodeTests(String code) {
+                boolean passed = true;
+
+                for (String codeTest : level.getCodeTests()) {
+                    int lastIndex = 0;
+                    int count = 0;
+
+                    while (lastIndex != -1) {
+                        lastIndex = code.indexOf(codeTest, lastIndex);
+
+                        if (lastIndex != -1) {
+                            count++;
+                            lastIndex += codeTest.length();
+                        }
+                    }
+
+                    if (count != 1) {
+                        passed = false;
+                    }
 
 //            if (!code.contains(codeTest)) {
 //                return;
 //            }
-        }
-
-        for (int i = 0; i < ioTestsInput.size(); i++) {
-
-        }
-
-        createSuccessDialog();
+                }
+                return passed;
+            }
+        });
     }
 
     @Override
@@ -153,9 +184,15 @@ public class LevelActivity extends AbstractBlocklyActivity {
 
         builder.setPositiveButton("Dalej", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+
+                Intent intent = new Intent(LevelActivity.this, LevelsListActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(
-                        new Intent(LevelActivity.this, LevelsListActivity.class));
-                onDestroy();
+                        intent);
+//                onDestroy();
+//                LevelActivity.this.finish();
+//                Runtime.getRuntime().gc();
             }
         });
 
